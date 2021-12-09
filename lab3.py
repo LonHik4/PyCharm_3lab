@@ -1,6 +1,9 @@
 import json
 import pathlib
 import pickle
+from tqdm import tqdm
+
+
 class ValidPeople:
     data: list
 
@@ -9,7 +12,9 @@ class ValidPeople:
 
 
 def quick_sort(alist ,flag:str):
-    #alist список словарей
+    """alist список словарей
+        flag поле по которому мы сортируем quick_sotr'ом
+    """
     alist = alist[:100]
     if len(alist) < 2:
         return
@@ -39,10 +44,12 @@ def quick_sort(alist ,flag:str):
     return alist
 
 def write(path,array):
+    """serealization write Pickle"""
     with open(path, 'wb') as write_file:
         pickle.dump(array, write_file)
 
 def read(path):
+    """serealization read Peckle"""
     with open(path, 'rb') as read_file:
         pickle.load(read_file)
 
